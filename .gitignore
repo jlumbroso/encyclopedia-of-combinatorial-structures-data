@@ -1,5 +1,14 @@
+# Build files
+maintable.m*
+
+# Other build files
+gdev.mla
+ind.m
+*.date
+
 # Temporary files
 *~
+output.log
 
 # macOS metadata
 .DS_Store
