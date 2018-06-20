@@ -30,6 +30,7 @@ indCount:=table():
 createindices(maintable,'indGF','indCF','indExpr','indCount',
     1,maintable['Count']);
 # Creation de fichiers intermediaires
+save `encyclopedia/maintable`,`maintable.mpl`;
 save `encyclopedia/maintable`,`maintable.m`;
 ind:=[indGF,indCF,indExpr,indCount]:
 save indGF,indCF,indExpr,indCount,ind,`ind.m`;
