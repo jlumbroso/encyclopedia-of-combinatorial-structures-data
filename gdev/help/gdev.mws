@@ -1,0 +1,75 @@
+{VERSION 3 0 "HELP" "3.0"}
+{USTYLETAB {PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 }0 0 0 -1 -1 10 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {PARA 3 "> " 0 "" {TEXT -1 4 "gdev" }
+{TEXT 30 36 " - generalized asymptotic expansions" }
+}
+{PARA 3 "> " 0 "" {TEXT -1 6 "glimit" }
+{TEXT 30 39 " - computations of limits based on gdev" }
+}
+{PARA 4 "> " 0 "usage" {TEXT -1 17 "Calling Sequence:" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 28 "     gdev(expr, eqn, dir, n)" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 27 "     glimit(expr, eqn, dir)" }
+}
+{PARA 4 "> " 0 "" {TEXT -1 11 "Parameters:" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 7 "expr - " }
+{TEXT -1 13 "an expression" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 7 "eqn  - " }
+{TEXT -1 41 "an equation (e.g. x = a) or name (e.g. x)" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 7 "dir  - " }
+{TEXT -1 49 "(optional) direction: one of straight, or inverse" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 7 "n    - " }
+{TEXT -1 33 "(optional) a non-negative integer" }
+}
+
+{SECT  0 {PARA 4 "> " 0 "info" {TEXT -1 12 "Description:" }
+}
+{PARA 15 "> " 0 "" {TEXT -1 157 "The function gdev computes a generalized asymptotic expansion of expr with respect to the variable x, about the point a, in the direction dir, up to order n." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 178 "The function glimit computes the limit of expr, with respect to the variable x, about the point a, in the direction dir. It is based on internal computations performed with gdev." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 38 "If eqn is a name, then a=0 is assumed." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 208 "The direction straight means \"following a line from 0\" except in 0 where it means \"from the right\". Inverse means \"from the left\" if a=0 and \"from infinity\" for other complex numbers. Default dir is straight." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 67 "n is the number of non-zero terms in the expansion. Default is one." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 133 "Details about these functions can be found in \"Examples of Automatic Asymptotic Expansions\", SIGSAM Bulletin vol. 25, #2, April 1991." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 42 "These functions must be loaded by readlib." }
+}
+}
+{SECT  0 {PARA 4 "> " 0 "examples" {TEXT -1 9 "Examples:" }
+}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 62 "readlib(gdev):\nreadlib(glimit):\ngdev(ln(cot(-x/ln(x))),x=0,3);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#,*-%#lnG6#*$%\"xG!\"\"\"\"\"-F%6#F$F**&F$!\"#F(\"\"##F)\"\"$-%\"OG6#*&
+F$!\"%F(\"\"%F*
+"}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 40 "f:=GAMMA(x+sin(x))*x^(-sin(x))/GAMMA(x);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#>%\"fG*(-%&GAMMAG6#,&%\"xG\"\"\"-%$sinG6#F*F+F+)F*,$F,!\"\"F+-F'F
+.F1
+"}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "gdev(f,x=infinity,2);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#,(\"\"\"F$*&,(*$-%$sinG6#%\"xG\"\"##F$F,F(#!\"\"F,#F/\"#7F$F$F+F/F$
+-%\"OG6#*$F+!\"#F$
+"}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 "glimit((tan(sin(x^4))-sin(tan(x^4)))/x^28,x=0);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6##\"\"\"\"#I
+"}}}
+}
+{SECT  0 {PARA 4 "> " 0 "seealso" {TEXT -1 10 "See Also: " }
+}
+{PARA 0 "> " 0 "" {HYPERLNK 17 "limit" 2 "limit" "" }{TEXT -1 2 ", " }
+{HYPERLNK 17 "series" 2 "series" "" }{TEXT -1 2 ", " }
+{HYPERLNK 17 "asympt" 2 "asympt" "" }}
+}}

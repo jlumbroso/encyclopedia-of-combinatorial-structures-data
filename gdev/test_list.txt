@@ -1,0 +1,10 @@
+test/rational_functions
+test/other_polar_singularities_1
+test/other_polar_singularities_2
+test/other_polar_singularities_3
+test/other_polar_singularities_4
+test/algebraic_functions
+test/other_algebraic_singularities
+test/logarithmic_singularities
+test/entire_functions
+test/finite_saddle_points

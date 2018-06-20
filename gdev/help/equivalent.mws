@@ -1,0 +1,65 @@
+{VERSION 3 0 "HELP" "3.0"}
+{USTYLETAB {PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 }0 0 0 -1 -1 10 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {PARA 3 "> " 0 "" {TEXT -1 10 "equivalent" }
+{TEXT 30 46 " - asymptotic expansion of Taylor coefficients" }
+}
+{PARA 4 "> " 0 "usage" {TEXT -1 17 "Calling Sequence:" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 29 "     equivalent( f, x, n, p )" }
+}
+{PARA 4 "> " 0 "" {TEXT -1 11 "Parameters:" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 4 "f - " }
+{TEXT -1 13 "an expression" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 4 "x - " }
+{TEXT -1 6 "a name" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 4 "n - " }
+{TEXT -1 6 "a name" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 4 "p - " }
+{TEXT -1 29 "(optional) a positive integer" }
+}
+
+{SECT  0 {PARA 4 "> " 0 "info" {TEXT -1 12 "Description:" }
+}
+{PARA 15 "> " 0 "" {TEXT -1 182 "The equivalent function computes the p first terms of the asymptotic expansion of the coefficients of the Taylor series of f in the neighbourhood of x=0. In other words, if as x-->0," }
+}
+{PARA 0 "> " 0 "" {TEXT -1 1 "\n" }
+{TEXT 23 45 "     f(x) = a[0] + a[1] x + a[2] x^2  + ... ," }
+}
+{PARA 14 "> " 0 "" {TEXT -1 85 "the output of equivalent is an asymptotic expansion of a[n] when n tends to infinity." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 30 "The default value of p is one." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 266 "This function works by singularity analysis or saddle-point method according to the type of f. More details can be obained by looking at the source, or by reading \"Asymptotique Automatique et Fonctions Generatrices\", B. Salvy, PhD Thesis, Ecole Polytechnique (1991)." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 40 "This function must be loaded by readlib." }
+}
+}
+{SECT  0 {PARA 4 "> " 0 "examples" {TEXT -1 9 "Examples:" }
+}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "readlib(equivalent):\nequivalent(exp(z),z,n);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#,&*,%#PiG#!\"\"\"\"#F(#\"\"\"F(%\"nGF&-%$expG6#F+F*)F+,$F+F'F*F)-%
+\"OG6#*&)F+,&#!\"$F(F*F+F'F*F,F*F*
+"}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 41 "equivalent(exp(x+x^2/4)/sqrt(1-x),x,n,2);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#,(*(%#PiG#!\"\"\"\"#-%$expG6##\"\"&\"\"%\"\"\"%\"nGF&F/*(F%F&F)F/F0#!\"
+$F(#F-\"\")-%\"OG6#*$F0#!\"&F(F/
+"}}}
+}
+{SECT  0 {PARA 4 "> " 0 "seealso" {TEXT -1 10 "See Also: " }
+}
+{PARA 0 "> " 0 "" {HYPERLNK 17 "taylor" 2 "taylor" "" }{TEXT -1 1 "," }
+{HYPERLNK 17 "series" 2 "series" "" }{TEXT -1 1 "," }
+{HYPERLNK 17 "asympt" 2 "asympt" "" }{TEXT -1 1 "," }
+{HYPERLNK 17 "gdev" 2 "gdev" "" }{TEXT -1 1 "," }
+{HYPERLNK 17 "infsing" 2 "infsing" "" }{TEXT -1 1 " " }
+}
+}}

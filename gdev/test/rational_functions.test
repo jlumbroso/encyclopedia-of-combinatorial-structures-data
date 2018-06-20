@@ -1,0 +1,36 @@
+# Copyright (C) 1991--2013 by INRIA.
+#
+# This file is part of Algolib.
+#
+# Algolib is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# Algolib is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with Algolib.  If not, see
+# <http://www.gnu.org/licenses/>.
+
+read "test/common.mpl";
+
+###########################################################################
+#                           Rational functions
+###########################################################################
+# Denumerants
+test(1/mul(x-i,i=1..10),x,10,5,.4e-6);
+test(1/(1-x)^6/(1-x^6),x,10,10,5,0);
+test((1-z)/(1-2*z+z^4),z,10,5,.5e-8);
+test((1+z^2)*(1+z+z^2)*(1-z+z^2)*(1-z^2+z^4)/(1-z-z^3-z^5-z^7-z^9-z^11),z,10,1,.5e-2);
+# Gambler's ruin
+pp:=1/2:
+q:=1-pp:k:=5:
+c:=10:
+l:=(1+sqrt(1-4*pp*q*z^2))/2/pp/z:
+m:=(1-sqrt(1-4*pp*q*z^2))/2/pp/z:
+a:=(q/pp)^k*(l^(c-k)-m^(c-k))/(l^c-m^c):
+test(a,z,11,5,.5e-8);

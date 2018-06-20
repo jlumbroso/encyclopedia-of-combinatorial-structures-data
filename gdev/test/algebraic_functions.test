@@ -1,0 +1,80 @@
+# Copyright (C) 1991--2013 by INRIA.
+#
+# This file is part of Algolib.
+#
+# Algolib is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# Algolib is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with Algolib.  If not, see
+# <http://www.gnu.org/licenses/>.
+
+read "test/common.mpl";
+
+###########################################################################
+#                          Algebraic functions
+###########################################################################
+# Catalan numbers
+test((1-sqrt(1-4*z^2))/2/z,z,11,5,.5e-5);
+test(x/2*(1-sqrt(1-4*x))/(1-4*x),x,10,5,.2e-5);
+test(-1/4*1/z**2*(-1+(1+24*z**2-12*z+12*z*(1-16*z)**(1/2))**(1/2)),z,10,5,.2e-1);
+# Formal differentiation
+f:=1/4/z*(1-2*z-(1-4*z-12*z^2)^(1/2)):
+aa:=2+2*u:
+ee:=2+7*u+4*u^2:
+gen:=z*diff(f,z)+z^2*diff(f,z)/f*subs(u=f,ee)+z^3*(diff(f,z))^2/f*subs(u=f,aa):
+test(gen,z,10,5,.4e-3);
+test(f,z,10,5,.2e-4);
+t:=1/6/z*(1-z-(1-26*z+z^2)^(1/2)):
+test(t,z,10,5,.2e-4);
+# Distributivity
+expression := 1/4*1/z*(1-z-(1-2*z-7*z**2)**(1/2)):
+tau_distrib :=
+-(3/4*z+1/16*1/z*(1-z-(1-2*z-7*z**2)**(1/2))**2-1/16*(1-z-(1-2*z-7*z**2)
+**(1/2))**2-1/64*1/z*(1-z-(1-2*z-7*z**2)**(1/2))**3-1/4*z*(1-z-(1-2*z-7*
+z**2)**(1/2))+1/4-1/4*(1-2*z-7*z**2)**(1/2))/(-5/16*(1-z-(1-2*z-7*z**2)
+**(1/2))**2-1/4*z*(1-z-(1-2*z-7*z**2)**(1/2))+1/4-1/4*z-5/4*(1-2*z-7*z**
+2)**(1/2)+z**2):
+test(tau_distrib,z,100,1,.4);
+test(expression,z,10,5,.5e-3);
+#
+tau_f1(z):= 1/2*(4-6*z**2-4*(1-4*z**2)**(1/2)+2*z**2*(1-4*z**2)**(1/2))
+/z/(-2+8*z**2+3*(1-4*z**2)**(1/2)+(1-4*z**2)**(3/2)+2*z**2*(1-4*z**2)**
+(1/2)):
+test(tau_f1(z),z,11,5,.2e-4);
+# Shuffle of trees
+tau_shuffle1 := 
+-(z**4+3/4*z**2*(1-(1-4*z**2)**(1/2))**2+3/16*(1-(1-4*z**2)**(1/2))**4-
+1/16*1/z**2*(1-(1-4*z**2)**(1/2))**4-z**2-1/2*(1-(1-4*z**2)**(1/2))**2+
+1/64*1/z**2*(1-(1-4*z**2)**(1/2))**6)/(3/4*z**2*(1-(1-4*z**2)**(1/2))**
+2+1-3/4*(1-(1-4*z**2)**(1/2))**2-2*z**2+1/8*(1-(1-4*z**2)**(1/2))**4):
+# The following numerical result is not wrong. What happens is that
+# the series is very divergent. One should try n=200, and take the two
+# first terms of the asymptotic expansion + 1/2 of the 3rd one.
+test(tau_shuffle1,z,20,3,1.1);
+# Total path length of binary trees
+test(z/2*(1-sqrt(1-4*z))/(1-4*z),z,10,5,.2e-5);
+# Binary trees of binary trees of binary trees
+b:=(1-sqrt(1-4*z*y))/2/z:
+test(subs(y=subs(y=subs(y=1,b),b),b),z,20,5,.1e-2);
+# the next singularity might be too close
+test(-1/2*RootOf((z^2+z^2*(1-4*z)^(1/2))*_Z^3+(-2*z-2*z*(1-4*z)^(1/2))*
+_Z^2+(1+(1-4*z)^(1/2))*_Z-2*z)*(-1-(1-4*z)^(1/2)+z*RootOf((z^2+z^2*(1-4*z)^
+(1/2))*_Z^3+(-2*z-2*z*(1-4*z)^(1/2))*_Z^2+(1+(1-4*z)^(1/2))*_Z-2*z)+z*RootOf(
+(z^2+z^2*(1-4*z)^(1/2))*_Z^3+(-2*z-2*z*(1-4*z)^(1/2))*_Z^2+(1+(1-4*z)^(1/2))*
+_Z-2*z)*(1-4*z)^(1/2)),z,10,5,.7);
+# used not to be able to find the singularity in RootOf(499*z**2+16*z-8)
+# the expansion is very divergent
+tau_rewrite:=
+-(2-4*z-2*(1-2*z-59*z**2)**(1/2)-208*z**2+2*z*(1-2*z-59*z**2)**(1/2))/(41*z-82*
+z**2+9*z*(1-2*z-59*z**2)**(1/2)-2689*z**3-9*z**2*(1-2*z-59*z**2)**(1/2)):
+test(tau_rewrite,z,10,2,.5);
+test(-1/9*(1-12*x)**(1/2)/x*(-1+18*x)+2/9/(1+(1-12*x)**(1/2))/x*(-1+18*x)
++1/(1-12*x)**(1/2)*(-24*x+2),x,10,5,.2e-1);

@@ -1,0 +1,60 @@
+Ce README resume les informations necessaires a la maintenance et au
+portage de l'encyclopedia.
+
+Les fichiers necessaires sont
+	database.mpl		les sources de la table
+	enc_functions.mpl	fonctions qui servent a creer la table
+	encyclopedia.mpl	fonctions de recherche dans la table
+	createtable.mpl		creation de la table complete (voir II)
+	add.mpl			ajout d'entrees a la table (voir I)
+	saveall.mpl		utilise pour integrer a algolib
+
+Les fichiers crees sont :
+	maintable.m		une version .m intermediaire de la table
+	ind.m			les tables d'indices
+	encyclopedia.m		les indices + les fonctions du package.
+
+Seul ce dernier fichier (son contenu dans la version algolib) est
+donne aux utilisateurs.
+
+I. POUR RAJOUTER DE NOUVELLES ENTREES :
+---------------------------------------
+(sous lmaple car il est necessaire d'avoir acces a equivalent et a gfun)
+
+1.)
+> read `enc_functions.mpl`;
+> read `../maintable.m`;
+> macro(maintable=`encyclopedia/maintable`);
+> compt:=maintable[Count]+1;
+
+2.)
+Pour chaque entree : 
+> inserttable(maintable,"Name",combstruct specification,
+	"Description","References");
+
+- Par exemple :
+  inserttable(maintable,"Permutations", [d,{d=Set(Cycle(Z))},labelled],
+  "Permutations of n elements", "Euler, 1741; Stirling, 1730, EIS A0142");
+- References peut contenir une adresse d'un site web a condition que
+  celle ci finisse par .html (le Perl script encyclopedia cree le
+  lien). 
+- inserttable numerote automatiquement les indices de maintable. 
+- Au final, le maintable.m ne sert plus mais il peut etre utile de le garder
+  car c'est son calcul qui demande le plus de temps. 
+
+3.)
+> read `add.mpl`; 
+
+4.)
+mettre les donnees rentrees au 2.) (inserttable(...);) a la fin du
+fichier database.mpl pour qu'elles ne soient pas perdues en cas de
+recalcul de la table (II).
+
+
+II. RECALCUL DE LA TABLE :
+--------------------------
+(en cas de modification de references, de descriptions... ds le fichier database.mpl)
+
+lmaple < createtable.mpl
+
+

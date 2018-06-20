@@ -1,0 +1,42 @@
+# Copyright (C) 1991--2013 by INRIA.
+#
+# This file is part of Algolib.
+#
+# Algolib is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# Algolib is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with Algolib.  If not, see
+# <http://www.gnu.org/licenses/>.
+
+read "test/common.mpl";
+
+###########################################################################
+#                     Other algebraic singularities
+###########################################################################
+test(sqrt(2-ln(1/(1-z))),z,50,5,.2e-2);
+test(exp(z)*sqrt(1-z),z,10,5,.4e-2);
+test(exp(sqrt(1-2*z)/(1-z)),z,20,5,.2e-1);
+test(sqrt(1-2*z)*exp(1/(1-z)),z,20,5,.2e-1);
+# Clouds
+f:=exp(z/2+z^2/4)/sqrt(1-z):
+test(f,z,10,5,.6e-3);
+# Cycles of cycles of binary trees
+aaa:=(1-sqrt(1-4*z))/2:
+test(QuasiLog(QuasiLog(aaa)),z,50,5,.3e-1);
+# Cayley trees
+test(-W(-z),z,10,5,.3e-5);
+test(-W(-x/(1+x)),x,20,5,.3e-3);
+test(-W(-1/2*exp(1/2*ln(1+x)-1/2))+1/2*ln(1+x)-1/2,x,10,5,.6e-2);
+test(exp(QuasiLog(-W(-z))),z,10,5,.4e-7);
+test(1/(1+W(-z))^2*z*exp(-W(-z))/(1-z*exp(-W(-z))),z,10,5,.8e-8);
+# Binary trees of cycles of cycles
+f:=1/2*(1-sqrt(1-4*log(1/(1-log(1/(1-z)))))):
+test(f,z,10,5,.4e-3);

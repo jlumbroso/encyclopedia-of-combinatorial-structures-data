@@ -1,0 +1,46 @@
+# Copyright (C) 1991--2013 by INRIA.
+#
+# This file is part of Algolib.
+#
+# Algolib is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# Algolib is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with Algolib.  If not, see
+# <http://www.gnu.org/licenses/>.
+
+read "test/common.mpl";
+
+###########################################################################
+#                        Other polar singularities (4)
+###########################################################################
+# Random trains
+test(QuasiInverse(z*exp(z^2+z^3))+QuasiInverse(z^2*exp(z^4+z^5)+QuasiLog(z^2*exp(2*(z^2+z^3)))),z,20,3,.5e-1);
+train :=
+z**2*QuasiInverse(z**2*(1+z*QuasiLog(z)))*QuasiInverse(z**2*QuasiInverse(z**2*(1+z*QuasiLog(z)))*exp(QuasiLog(z)**2)*(1+z*
+QuasiLog(z)))+z**3*QuasiLog(z)*QuasiInverse(z**2*(1+z*QuasiLog(z)))*QuasiInverse(z**2*QuasiInverse(z**2*(1+z*QuasiLog(z)))*exp(QuasiLog(
+z)**2)*(1+z*QuasiLog(z))):
+test(train,z,20,5,.2);
+tau_first_empty_wagon :=
+(z**2*QuasiInverse(z**2*(1+z*QuasiLog(z)))+z**3*QuasiLog(z)*QuasiInverse(z**2*(1+z*QuasiLog(z))))*(z**2*QuasiInverse(z**2*
+(1+z*QuasiLog(z)))*exp(QuasiLog(z)**2)+z**3*QuasiLog(z)*QuasiInverse(z**2*(1+z*QuasiLog(z)))*exp(QuasiLog(z)**2))*
+QuasiInverse(z**2*QuasiInverse(z**2*(1+z*QuasiLog(z)))*exp(QuasiLog(z)**2)+z**3*QuasiLog(z)*QuasiInverse(z**2*(1+z*QuasiLog(z)))*
+exp(QuasiLog(z)**2)):
+test(tau_first_empty_wagon,z,20,5,.2);
+tau_first_empty_wagon2:= -(z**2+z**3*QuasiLog(z))*QuasiInverse(z**2+z**3*QuasiLog(z))*(-1-z**2*
+QuasiInverse(z**2+z**3*QuasiLog(z))*exp(QuasiLog(z)**2)*QuasiInverse((z**2+z**3*QuasiLog(z))*QuasiInverse(z**2+z**3*QuasiLog(z))*exp(
+QuasiLog(z)**2))-z**3*QuasiLog(z)*QuasiInverse(z**2+z**3*QuasiLog(z))*exp(QuasiLog(z)**2)*QuasiInverse((z**2+z**3*QuasiLog(z))*QuasiInverse(
+z**2+z**3*QuasiLog(z))*exp(QuasiLog(z)**2)))/(1-z**2*QuasiInverse(z**2+z**3*QuasiLog(z))*exp(QuasiLog(z)**2)+z
+**2*QuasiInverse(z**2+z**3*QuasiLog(z))-z**3*QuasiLog(z)*QuasiInverse(z**2+z**3*QuasiLog(z))*exp(QuasiLog(z)**2)+z**3*QuasiLog(z)
+*QuasiInverse(z**2+z**3*QuasiLog(z))):
+test(tau_first_empty_wagon2,z,20,1,.8e-2); # cannot find the 2nd singularity
+f:=2/exp(x)/(2*sinh(sqrt(2)/2*x)-sqrt(2)*cosh(sqrt(2)/2*x))^2:
+test(f,x,10,5,.8e-8);
+test(1/(2+z-exp(z)),z,10,5,.3e-8);

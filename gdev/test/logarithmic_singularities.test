@@ -1,0 +1,49 @@
+# Copyright (C) 1991--2013 by INRIA.
+#
+# This file is part of Algolib.
+#
+# Algolib is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# Algolib is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with Algolib.  If not, see
+# <http://www.gnu.org/licenses/>.
+
+read "test/common.mpl";
+
+###########################################################################
+#                      Logarithmic singularities
+# the number of terms is chosen so that test does a summation to the
+# least term
+###########################################################################
+# Children rounds
+test((1-z)^(-z),z,20,10,.5e-5);
+test((1-z)^z,z,20,10,.2e-2);
+test(exp(exp(z))*ln(1/(1-z)),z,10,7,.3e-1);
+test(exp(1/(1-z))*ln(1/(1-2*z)),z,30,8,.9e-4);
+test(exp(z*ln(1/(1-z))),z,30,22,.4e-7);
+test(-z**2/(-1+z)**2/ln(1-z),z,10,5,.3e-1);
+test(sqrt(1/z*ln(1+z)),z,20,3,.5e-2);
+test((ln(1/(1-z))^2+ln(1/(1-z)))/(1-z),z,10,9,.9e-5);
+test((exp(QuasiLog(z))-1)/QuasiLog(z)*z/(-z+1),z,10,1,.4e-1);
+test(QuasiInverse(z)/QuasiLog(z^2),z,11,3,.2e-1);
+test(QuasiInverse(z)/QuasiLog(z)^2,z,40,5,.7e-2);
+test((x/2+ln(1/(2-4*x))/4)/(1-2*x)^(1/2),x,30,5,.5e-4);
+f:=1/(1-z)*log(1/(1-z)):
+g:=log(1+z)/(1-z):
+test(f,z,10,5,.3e-6);
+test(f^2,z,10,10,.4e-5);
+test(g,z,10,5,.2e-7);
+test((1-x)^(1.3),x,10,5,.5e-4);
+test((1-x)^(1-I),x,10,5,.6e-4);
+# Used to be a bug
+test(1/(1-z)*ln(1/(1-z))^3,z,10,10,.7e-4);
+# the O() term used to be O(1/n^2)
+test(QuasiInverse(z)*QuasiLog(z)^2,z,10,6,.2e-2);

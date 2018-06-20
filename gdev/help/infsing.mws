@@ -1,0 +1,53 @@
+{VERSION 3 0 "HELP" "3.0"}
+{USTYLETAB {PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 }0 0 0 -1 -1 10 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {PARA 3 "> " 0 "" {TEXT -1 7 "infsing" }
+{TEXT 30 48 " - find the smallest singularities of a function" }
+}
+{PARA 4 "> " 0 "usage" {TEXT -1 17 "Calling Sequence:" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 23 "     infsing( f, x, r )" }
+}
+{PARA 4 "> " 0 "" {TEXT -1 11 "Parameters:" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 4 "f - " }
+{TEXT -1 28 "an expression depending on x" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 4 "x - " }
+{TEXT -1 6 "a name" }
+}
+{PARA 0 "> " 0 "" {TEXT -1 5 "     " }
+{TEXT 23 4 "r - " }
+{TEXT -1 33 "(optional) a positive real number" }
+}
+
+{SECT  0 {PARA 4 "> " 0 "info" {TEXT -1 12 "Description:" }
+}
+{PARA 15 "> " 0 "" {TEXT -1 114 "The infsing function computes a list of singular points of f of minimal modulus, this modulus being larger than r." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 62 "If the third argument is not given, then r is assumed to be 0." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 389 "The output of infsing is a list whose first element is a list of equimodular singular points, whose second argument is the type of the singularity (one of 'polar', 'algebraic', 'log', 'essential' and 'polynom') and whose third element is a boolean which is true if infsing could determine that the Taylor coefficients of f about 0 are positive. It can be false even when they are positive." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 259 "It is possible to extend the capabilities of infsing by defining procedures `infsing/funcname`. Such a procedure has the same input as infsing, except that f will always be of type specfunc(anything,funcname), it must yield the output of infsing in that case." }
+}
+{PARA 15 "> " 0 "" {TEXT -1 55 "This function must be first loaded by readlib(infsing)." }
+}
+}
+{SECT  0 {PARA 4 "> " 0 "examples" {TEXT -1 9 "Examples:" }
+}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 36 "readlib(infsing):\ninfsing(exp(x),x);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#7%7#%)infinityG%*essentialG%%trueG
+"}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "infsing(1/(1-x^2),x);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#7%7$\"\"\"!\"\"%&polarG%&falseG
+"}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 23 "infsing(1/(1-x^2),x,1);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#7%7#%)infinityG%&polarG%&falseG
+"}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 24 "infsing(z/(exp(z)-1),z);" }
+}
+{PARA 11 "> " 1 "" {XPPMATH 20 "6#7%7$,$*&%\"IG\"\"\"%#PiGF(!\"#,$F&\"\"#%&polarG%&falseG
+"}}}
+}}
