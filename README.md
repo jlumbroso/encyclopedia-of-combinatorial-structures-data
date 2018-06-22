@@ -5,6 +5,48 @@
 
 This repository contains a subset of the `algolib` v17 distribution dedicated to the Encyclopedia of Combinatorial Structures. This subset is used to generate a portable JSON file storing all the information in a convenient format.
 
+The file `ecs.json` contains the entire dictionary's dataset in JSON format:
+
+```json
+{
+  "1": {
+    "id": 1,
+    "name": "Alcohols or Unlabelled Non Plane Ternary Trees",
+    "description": "Alcohols or unlabelled  non plane ternary Trees",
+    "specification": "{S = Union(Z,Prod(Z,Set(S,card = 3))), Z = Atom}",
+    "labeled": false,
+    "symbol": "S",
+    "terms": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      2,
+      0,
+      0,
+      4,
+      0,
+      0,
+      8,
+      0,
+      0,
+      17,
+      0
+    ],
+    "references": [
+      "EIS A000598"
+    ]
+  },
+  ...
+```
+The specification is in `combstruct` format (see the [combstruct2json](https://github.com/jlumbroso/combstruct2json) project for a parser library and tool to read this format).
+
 ## History
 
 The Encyclopedia of Combinatorial Structures is a project started by Stéphanie Petit-Halajda in 1998, as she was visiting the Algorithms Project at INRIA in Rocquencourt. It built on the work of many other visitors to the Algorithms Project, and sought to combine the automatic enumeration and construction conveniences of `combstruct` (Marni Mishna, Eithne Murray, Paul Zimmerman, ...) and the automatic asymptotic extraction functionality of `gdev` (Bruno Salvy, Frédéric Chyzak, ...) in a convenient self-contained form. 
