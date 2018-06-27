@@ -17,27 +17,8 @@ The file `ecs.json` contains the entire dictionary's dataset in JSON format:
     "labeled": false,
     "symbol": "S",
     "terms": [
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-      2,
-      0,
-      0,
-      4,
-      0,
-      0,
-      8,
-      0,
-      0,
-      17,
-      0
+      0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 2,
+      0, 0, 4, 0, 0, 8, 0, 0, 17, 0
     ],
     "references": [
       "EIS A000598"
